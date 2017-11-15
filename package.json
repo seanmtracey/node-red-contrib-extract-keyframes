@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-extract-keyframes",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Extract keyframes from a video file and send them to Watson for analysis",
   "main": "index.js",
   "scripts": {
@@ -15,9 +15,6 @@
   },
   "dependencies": {
     "debug": "^3.1.0",
-    "ffmpeg-static": "^2.0.0",
-    "ffprobe-static": "^2.0.0",
-    "fluent-ffmpeg": "^2.1.2",
-    "uuid": "^3.1.0"
+    "extract-keyframes": "0.0.1"
   }
 }
