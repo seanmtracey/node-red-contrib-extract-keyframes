@@ -1,0 +1,26 @@
+<script type="text/javascript">
+    RED.nodes.registerType('extract-keyframes',{
+        category: 'function',
+        color: '#D8BFD8',
+        defaults: {
+            name: {value:""}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "extract.png",
+        label: function() {
+            return this.name || "extract-keyframes";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="extract-keyframes">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="extract-keyframes">
+    <p>Extracts keyframes from video files.</p>
+</script>
