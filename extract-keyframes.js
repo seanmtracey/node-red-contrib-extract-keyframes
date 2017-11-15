@@ -35,7 +35,6 @@ module.exports = function(RED) {
                         dataToSend.res = msg.res;
                         node.send(dataToSend);
 
-
                     });
 
                     extractionProcess.on('finish', function(data){
