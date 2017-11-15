@@ -8,6 +8,7 @@
   },
   "author": "Sean M. Tracey",
   "license": "MIT",
+  "keywords": [ "node-red" ],
   "node-red": {
     "nodes": {
       "stream": "extract-keyframes.js"
