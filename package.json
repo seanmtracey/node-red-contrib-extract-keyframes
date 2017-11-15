@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-extract-keyframes",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Extract keyframes from a video file and send them to Watson for analysis",
   "main": "index.js",
   "scripts": {
