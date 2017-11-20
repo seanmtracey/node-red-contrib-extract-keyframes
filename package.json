@@ -1,15 +1,25 @@
 {
   "name": "node-red-contrib-extract-keyframes",
-  "version": "0.0.41",
+  "version": "0.0.42",
   "description": "Extract keyframes from a video file.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seanmtracey/node-red-contrib-extract-keyframes.git"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Sean M. Tracey",
+  "author": {
+    "name": "Sean M. Tracey",
+    "email": "sean.tracey@ibm.com",
+    "url": "https://smt.codes"
+  },
   "license": "MIT",
   "keywords": [
-    "node-red"
+    "node-red",
+    "ffmpeg",
+    "keyframes"
   ],
   "node-red": {
     "nodes": {
