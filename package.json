@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-extract-keyframes",
-  "version": "0.0.42",
+  "version": "0.0.43",
   "description": "Extract keyframes from a video file.",
   "repository": {
     "type": "git",
