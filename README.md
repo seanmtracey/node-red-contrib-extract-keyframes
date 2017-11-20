@@ -44,7 +44,9 @@ For further information on when this object is passed, see Addendum 1.
 
 ## Addendum
 
-1. The finished object (the object that includes finished : true) is fired when the last keyframe has been identified by the node.
+### 1: The 'finished' object
+
+The finished object (the object that includes finished : true) is fired when the last keyframe has been identified by the node.
 
 This does not necessarrily mean that every keyframe has been extracted from the video file and corresponding `keyframe` event has been triggered. These processes happen independently of one another, and are not guarenteed to complete at the same time. 
 
