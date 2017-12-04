@@ -15,37 +15,44 @@ module.exports = function(RED) {
 
                     const jobUUID = uuid();
                     let firstFrame = true;
+                    let frameIndex = -1;
+                    const extractedFrames = [];
 
                     extractionProcess.on('start', function(){
-                        debug('Started');
+                        debug('Keyframe Extraction Started');
                     }, false);
 
                     extractionProcess.on('keyframe', function(data){
                         debug('KEYFRAME:', data);
+                        frameIndex += 1;
 
-                        const dataToSend = {
-                            keyframeTimeoffset : data.keyframeTimeoffset,
-                            payload : data.image,
-                            firstFrame : firstFrame,
-                            analysisUUID : jobUUID
-                        };
-
-                        if(firstFrame){
-                            firstFrame = false;
-                        }
-
-                        dataToSend.res = msg.res;
-                        node.send(dataToSend);
+                        node.send({
+                            payload : {
+                                image : data.image,
+                                timeOffset : data.keyframeTimeoffset
+                            },
+                            parts : {
+                                id : jobUUID,
+                                type : "object",
+                                index : frameIndex
+                            },
+                            res : msg.res
+                        });
 
                     });
 
                     extractionProcess.on('finish', function(data){
                         debug('Finish:', data);
-                        msg.finished = true;
-                        msg.analysisUUID = jobUUID;
-                        msg.totalFrames = data.totalFrames;
+                        
+                        node.send({
+                            parts : {
+                                type : "object",
+                                id : msg.analysisUUID,
+                                count : data.totalFrames
+                            },
+                            complete : true
+                        });
 
-                        node.send(msg);
                     });
 
                 })
