@@ -22,8 +22,11 @@ For every keyframe extracted from the chosen video file, the following object wi
 
 ```
 {
-    keyframeTimeoffset : <Number>, // The time index of the extracted frame.
-    payload : <Buffer>, // A buffer of the extracted image.
+    payload : {
+        image : <Buffer>, // A buffer of the extracted image.
+        timeOffset : <Number> // The time index of the extracted frame.
+    },
+    part
     firstFrame : <Boolean>, // True if this is the first frame extracted. Otherwise, false.
     res : <Object>, // If the object passed to the node had a res object, it will be cloned and included as part of the response.
     analysisUUID : <String> // A UUID identifying identifying the instance of keyframe extraction that this object belongs to.
