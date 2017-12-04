@@ -33,36 +33,57 @@
         <li>
             Keyframe Extracted
             <dl class="message-properties">
-                <dt>payload<span class="property-type">buffer</span></dt>
-                <dd>A buffer object containing a JPEG of the keyframe extracted from the video file.</dd>
+                <dt>payload<span class="property-type">object</span></dt>
+                <dl class="message-properties">
+                    <dt>image<span class="property-type">buffer</span></dt>
+                    <dd>A buffer object containing a JPEG of the keyframe extracted from the video file.</dd>
+                </dl>
+                <dl class="message-properties">
+                    <dt>timeOffset<span class="property-type">number</span></dt>
+                    <dd>The time index (in seconds) of the frame extracted from the video</dd>
+                </dl>
             </dl>
+
             <dl class="message-properties">
-                <dt>keyframeTimeoffset<span class="property-type">number</span></dt>
-                <dd>The time index (in seconds) of the frame extracted from the video</dd>
+                <dt>parts<span class="property-type">object</span></dt>
+                <dl class="message-properties">
+                    <dt>id<span class="property-type">buffer</span></dt>
+                    <dd>A UUID identifying the video that the frame belongs to.</dd>
+                </dl>
+                <dl class="message-properties">
+                    <dt>type<span class="property-type">string</span></dt>
+                    <dd>Described the type of object that the value of payload is.</dd>
+                </dl>
+                <dl class="message-properties">
+                    <dt>index<span class="property-type">number</span></dt>
+                    <dd>How many frames have been emitted before this one.</dd>
+                </dl>
             </dl>
-            <dl class="message-properties">
-                <dt>firstFrame<span class="property-type">boolean</span></dt>
-                <dd><code>true</code> if this is the first frame extracted from the video. Otherwise, <code>false</code>.</dd>
-            </dl>
-            <dl class="message-properties">
-                <dt>analysisUUID<span class="property-type">string</span></dt>
-                <dd>A UUID identifying the video that the frame belongs to.</dd>
-            </dl>
+
         </li>
         <li>
             All keyframes extracted
             <dl class="message-properties">
-                <dt>finished<span class="property-type">boolean</span></dt>
+                <dt>complete<span class="property-type">boolean</span></dt>
                 <dd>Only set when the last keyframe has been extracted. Will always be <code>true</code>.</dd>
             </dl>
+
             <dl class="message-properties">
-                <dt>analysisUUID<span class="property-type">boolean</span></dt>
-                <dd>A UUID identifying the video that the frame belongs to.</dd>
+                <dt>parts<span class="property-type">object</span></dt>
+                <dl class="message-properties">
+                    <dt>id<span class="property-type">buffer</span></dt>
+                    <dd>A UUID identifying the video that the frame belongs to.</dd>
+                </dl>
+                <dl class="message-properties">
+                    <dt>type<span class="property-type">string</span></dt>
+                    <dd>Described the type of object that the value of payload is.</dd>
+                </dl>
+                <dl class="message-properties">
+                    <dt>count<span class="property-type">number</span></dt>
+                    <dd>The total number of frames that have been emitted before this one.</dd>
+                </dl>
             </dl>
-            <dl class="message-properties">
-                <dt>totalFrames<span class="property-type">number</span></dt>
-                <dd>The total number of keyframes extracted from the video file.</dd>
-            </dl>
+
         </li>
     </ol>
 </script>
