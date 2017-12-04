@@ -26,10 +26,12 @@ For every keyframe extracted from the chosen video file, the following object wi
         image : <Buffer>, // A buffer of the extracted image.
         timeOffset : <Number> // The time index of the extracted frame.
     },
-    part
-    firstFrame : <Boolean>, // True if this is the first frame extracted. Otherwise, false.
-    res : <Object>, // If the object passed to the node had a res object, it will be cloned and included as part of the response.
-    analysisUUID : <String> // A UUID identifying identifying the instance of keyframe extraction that this object belongs to.
+    parts : {
+        id : <String>, // A UUID identifying identifying the instance of keyframe
+        type : "object",
+        index : <Number> // How many frames have been emitted before this one.
+    }
+    res : <Object>, // If the object passed to the node had a res object (from a HTTP request), it will be cloned and included as part of the response.
 }
 ```
 
@@ -37,20 +39,11 @@ If every keyframe has been identified and extracted from the passed video the or
 
 ```
 {
-    finished : true, // Only ever true. Only ever included on the final message output by the node
-    analysisUUID : <String>, A UUID identifying identifying the instance of keyframe extraction that this object belongs to.
-    totalFrames : <Number> // The total number of keyframes identified by the node.
+    complete : true, // Only ever true. Only ever included on the final message output by the node
+    parts : {
+        id : <String>, A UUID identifying identifying the instance of keyframe extraction that this object belongs to.
+        type : "object",
+        count : <Number> // The total number of keyframes identified by the node.
+    }
 }
 ```
-
-For further information on when this object is passed, see Addendum 1.
-
-## Addendum
-
-### 1: The 'finished' object
-
-The finished object (the object that includes finished : true) is fired when the last keyframe has been identified by the node.
-
-This does not necessarrily mean that every keyframe has been extracted from the video file and corresponding `keyframe` event has been triggered. These processes happen independently of one another, and are not guarenteed to complete at the same time. 
-
-To check that all of the keyframes have been identified _and_ have been returned, you must check that the number of `keyframe` events that have been emitted match the `totalFrames` property of the object passed to the `finish` event listener
