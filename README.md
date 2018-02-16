@@ -1,6 +1,10 @@
 # node-red-contrib-extract-keyframes
 A Node-red module for creating flows that extract keyframes from videos.
 
+## System Requirements
+
+Owing to large dependencies [(I suspect)](https://github.com/seanmtracey/extract-keyframes/issues/2#issuecomment-366218645), to install node-red-contrib-extract-keyframes on your system, you will need at least 1GB of RAM to complete the installation process. 
+
 
 ## Inputs
 
