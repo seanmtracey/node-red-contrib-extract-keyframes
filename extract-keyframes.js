@@ -10,6 +10,12 @@ module.exports = function(RED) {
 
         this.on('input', (msg) => {
 
+            debug('input', msg);
+
+            if(msg.payload.filePath === undefined){
+                msg.payload.filePath = msg.payload;
+            }
+
             extractKeyframes(msg.payload.filePath)
                 .then(extractionProcess => {
 
